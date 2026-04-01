@@ -45,7 +45,11 @@
       "Bash(powershell -Command \"Add-Type -AssemblyName System.IO.Compression.FileSystem; [System.IO.Compression.ZipFile]::OpenRead\\('D:\\\\Team\\\\PruebaScrum\\\\equipo-scrum-template-v2.1.zip'\\).Entries.FullName | Sort-Object\")",
       "Bash(cp \"C:/Users/osfer/.claude/templates/scrum/scrum-template/agents/orchestrator/CLAUDE.md\" \"D:/Team/PruebaScrum/CLAUDE.md\")",
       "Bash(for f:*)",
-      "Bash(echo \"Synced: $f\")"
+      "Bash(echo \"Synced: $f\")",
+      "Bash(powershell -Command \"\n\\\\$source = 'C:\\\\Users\\\\osfer\\\\.claude\\\\templates\\\\scrum\\\\scrum-template'\n\\\\$dest = 'D:\\\\Team\\\\PruebaScrum\\\\equipo-scrum-template-v2.2.zip'\nif \\(Test-Path \\\\$dest\\) { Remove-Item \\\\$dest }\nCompress-Archive -Path \\\\$source -DestinationPath \\\\$dest -Force\nWrite-Host 'ZIP creado exitosamente'\n\\(Get-Item \\\\$dest\\).Length / 1KB\n\")",
+      "Bash(powershell -Command \"\n\\\\$zip = [System.IO.Compression.ZipFile]::OpenRead\\('D:\\\\Team\\\\PruebaScrum\\\\equipo-scrum-template-v2.2.zip'\\)\n\\\\$zip.Entries | ForEach-Object { \\\\$_.FullName } | Sort-Object\n\\\\$zip.Dispose\\(\\)\n\")",
+      "Bash(powershell -Command \"\nAdd-Type -AssemblyName System.IO.Compression.FileSystem\n\\\\$zip = [System.IO.Compression.ZipFile]::OpenRead\\('D:\\\\Team\\\\PruebaScrum\\\\equipo-scrum-template-v2.2.zip'\\)\n\\\\$zip.Entries | ForEach-Object { \\\\$_.FullName } | Sort-Object\n\\\\$zip.Dispose\\(\\)\n\")",
+      "Bash(powershell -Command \"\n\\\\$source = 'C:\\\\Users\\\\osfer\\\\.claude\\\\templates\\\\scrum\\\\scrum-template'\n\\\\$dest = 'D:\\\\Team\\\\PruebaScrum\\\\equipo-scrum-template-v2.2.zip'\nif \\(Test-Path \\\\$dest\\) { Remove-Item \\\\$dest }\nCompress-Archive -Path \\\\$source -DestinationPath \\\\$dest -Force\nWrite-Host 'ZIP actualizado'\n[math]::Round\\(\\(Get-Item \\\\$dest\\).Length / 1KB, 1\\)\n\")"
     ]
   }
 }

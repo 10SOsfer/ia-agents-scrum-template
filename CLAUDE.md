@@ -33,6 +33,11 @@ Si no puede completar:
 ```
 <!-- SEÑAL:BLOQUEADO|[NombreAgente]|[razón del bloqueo] -->
 ```
+Señales especializadas:
+```
+<!-- SEÑAL:TIPOS_LISTOS|OsferDevBack|./output/src/types/|[timestamp] -->
+<!-- SEÑAL:CAMBIO|OsferArq|[decisión cambiada]|[agentes afectados] -->
+```
 OsferPO verifica señales antes de avanzar. Si detecta BLOQUEADO, escala al usuario inmediatamente.
 
 ---
